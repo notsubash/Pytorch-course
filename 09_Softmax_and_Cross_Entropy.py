@@ -60,6 +60,7 @@ loss = nn.CrossEntropyLoss()
 # 3 samples
 Y = torch.tensor([2, 0, 1])
 # n_samples * n_classes = 3 * 3 = 9
+#These are logits not softmaxed outputs
 Y_pred_good = torch.tensor([[0.1, 1.0, 2.1], [2.0, 1.0, 0.1], [0.1, 3.0, 0.1]])
 Y_pred_bad = torch.tensor([[2.1, 1.0, 1.0], [0.1, 1.0, 2.1], [0.1, 3.0, 0.1]])
 
@@ -71,8 +72,7 @@ print(f"Loss2 entropy: {l2.item()}")
 #Getting the actual predictions
 _, predictions1 = torch.max(Y_pred_good, 1)
 _, predictions2 = torch.max(Y_pred_bad, 1)
-print(predictions1)
-print(predictions2)
+print(f'Actual class: {Y.item()}, Y_pred1: {predictions1.item()}, Y_pred2: {predictions2.item()}')
 
 ##### --> Multi_Class problem
 class NeuralNet2(nn.Module):
