@@ -1,4 +1,3 @@
-'''
 Transforms can be applied to PIL images, tensors, ndarrays, or custom data
 during creation of the DataSet
 
@@ -30,6 +29,4 @@ Write own class
 
 Compose multiple Transforms
 ---------------------------
-composed = transforms.Compose([Rescale(256),
-                               RandomCrop(224)])
-'''
+composed = transforms.Compose([Rescale(256),RandomCrop(224)])
